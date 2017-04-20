@@ -93,3 +93,4 @@ ENV/
 .DS_Store
 **/*.mov
 *.h5
+*.h5.zip
