@@ -27,37 +27,37 @@ The goals for this project are the following:
 This project incldes the following files & folders
 
 > model.py => script to create and train the final model
-> 
+>
 > drive.py => Original file from Udacity to drive autonomously
-> 
+>
 > **primitive** => a model with only flatten layer just to establish a working setup
 > > primitive.py
-> > 
+> >
 > > model.h7
-> > 
+> >
 > > [Resultant Video - Car going in circles :-) ](https://youtu.be/XlR6suUvaVE)
-> 
+>
 > **first-attempt**
 > > model.py  => trial 1 for a model based on NVIDIA & Keras 2
-> > 
+> >
 > > model-architecture.md
-> > 
+> >
 > > data-distribution.png => histogram showing data distribution
-> > 
-> > 
+> >
+> >
 > > [Video - Properly driving on track 1](https://youtu.be/UUspdDIenkw) -- uploaded to youtube
 > 	
 > **final-attempt**
 > >
-> > model-7epoch.h5 => Working compiled model
-> > 
-> > model.py => Final Model 
-> > 
-> 
-> model.h5 => Compiled model, same as in fianl-attempt folder
-> 
+> > model-7epoch.h5.zip => Working compiled model
+> >
+> > model.py => Final Model
+> >
+>
+> model.h5.zip => Compiled model, same as in final-attempt folder
+>
 > model.py => Same as in final-attempt folder
-> 
+>
 > model.png => Keras model visualization
 
 --
@@ -190,17 +190,19 @@ Having a good data set is very critical training a nueral network. To capture go
 
 ![Center Lane](./images/center.jpg)
 
-I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to swerve back to the center of the lane if it gets drifted. Below are some of of the samples. 
+I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to swerve back to the center of the lane if it gets drifted. Below are some of of the samples.
 
 [Swerve from Left](./images/swerve-from-left.mp4)
 
 [Swerve from Right](./images/swerve-from-right.mp4)
 
 
-I tried creating datasets from Track 2, attempted recommendations from [David](http://davidaventimiglia.com/carnd_behavioral_cloning_part1.html) on some image flipping, shadowing etc. Getting more and more variations in the image sample for Training the network is the way to go a successfully trained model. However the model from **final-attempt** folder agains the Udacity's Training Dataset seems to work magical for me. 
+I tried creating datasets from Track 2, attempted recommendations from [David](http://davidaventimiglia.com/carnd_behavioral_cloning_part1.html) on some image flipping, shadowing etc. Getting more and more variations in the image sample for Training the network is the way to go a successfully trained model. However the model from **final-attempt** folder agains the Udacity's Training Dataset seems to work magical for me.
 
-I have tried to document some of my failed attempts in the RTF file, showing only the compilations. 
+I have tried to document some of my failed attempts in the RTF file, showing only the compilations.
 
 Below is the recording from the working setup.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/QxI3tvIn0Ms" frameborder="0" allowfullscreen></iframe>
+
+---
