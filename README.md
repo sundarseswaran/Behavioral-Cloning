@@ -1,6 +1,6 @@
-#**Behavioral Cloning**
+# **Behavioral Cloning**
 
-###**Behavioral Cloning Project**
+### **Behavioral Cloning Project**
 
 The goals for this project are the following:
 
@@ -12,7 +12,7 @@ The goals for this project are the following:
 
 --
 
-###Prerequisites
+### Prerequisites
 
 * Keras 2 API
 * Tensorflow Backend
@@ -22,7 +22,7 @@ The goals for this project are the following:
 
 --
 
-###Project Files & Folder Structure
+### Project Files & Folder Structure
 
 This project incldes the following files & folders
 
@@ -63,20 +63,20 @@ This project incldes the following files & folders
 --
 
 
-###Model Architecture and Training Strategy
+### Model Architecture and Training Strategy
 
-####1. An appropriate model architecture has been employed
+#### 1. An appropriate model architecture has been employed
 
 The model used here is completely based on NVIDIA's paper with added Dropout layers between the fully connected layer.
 
 
-####2. Attempts to reduce overfitting in the model
+#### 2. Attempts to reduce overfitting in the model
 
 The model includes dropouts in between the fully connected layers and the number of epoch was set to 7 where the loss reaches its minimum to avoid overfitting (model.py lines 21).
 
 The model was trained and validated on different data sets - including driving the car in reverse in the simultor, driving data from Track 2 etc. The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
 
-####3. Model parameter tuning
+#### 3. Model parameter tuning
 
 The model parameters were tuned or optimized by Adam optimizer with its defaults values
 
@@ -85,13 +85,13 @@ keras.optimizers.Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-08, decay=0
 ```
 
 
-####4. Appropriate training data
+#### 4. Appropriate training data
 
 Managed collect quite a number of training data from the simulator also made attempts to do image preprocessing by cropping and mirroring the images.
 
-###Model Architecture and Training Strategy
+### Model Architecture and Training Strategy
 
-####1. Solution Design Approach
+#### 1. Solution Design Approach
 
 The original goal for this model architecture was to build a multi-layer convolutional network that can be trained and eventually used to autonomously drive the car in a simulator.
 
@@ -108,7 +108,7 @@ To combat the overfitting, I have added One droppout layer bettween the convolut
 
 At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
 
-####2. Final Model Architecture
+#### 2. Final Model Architecture
 
 The final model architecture (model.py lines 18-24) consisted of a convolution neural network with the following layers and layer sizes ...
 
