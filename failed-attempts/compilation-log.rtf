@@ -1,0 +1,846 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fmodern\fcharset0 Courier-Bold;\f2\fmodern\fcharset0 Courier;
+}
+{\colortbl;\red255\green255\blue255;\red20\green152\blue2;\red215\green211\blue183;\red59\green35\blue34;
+\red50\green0\blue202;}
+{\*\expandedcolortbl;\csgray\c100000;\cssrgb\c0\c64504\c0;\cssrgb\c87500\c85798\c76563;\csgenericrgb\c23317\c13541\c13291;
+\cssrgb\c26119\c14096\c83119;}
+\margl1440\margr1440\vieww28600\viewh15500\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\b\fs36 \cf2 \cb3 \CocoaLigature0 ===>> Added dropouts and eliminating data with steering angle less than or equal to 0.3\
+ubuntu@ip-172-31-46-176
+\f2\b0 \cf4 :
+\f1\b \cf5 ~/code
+\f2\b0 \cf4 $ python model.py \
+Using TensorFlow backend.\
+_________________________________________________________________\
+Layer (type)                 Output Shape              Param #   \
+=================================================================\
+cropping2d_1 (Cropping2D)    (None, 70, 220, 3)        0         \
+_________________________________________________________________\
+conv2d_1 (Conv2D)            (None, 35, 110, 24)       1824      \
+_________________________________________________________________\
+activation_1 (Activation)    (None, 35, 110, 24)       0         \
+_________________________________________________________________\
+max_pooling2d_1 (MaxPooling2 (None, 34, 109, 24)       0         \
+_________________________________________________________________\
+conv2d_2 (Conv2D)            (None, 17, 55, 36)        21636     \
+_________________________________________________________________\
+activation_2 (Activation)    (None, 17, 55, 36)        0         \
+_________________________________________________________________\
+max_pooling2d_2 (MaxPooling2 (None, 16, 54, 36)        0         \
+_________________________________________________________________\
+conv2d_3 (Conv2D)            (None, 8, 27, 48)         43248     \
+_________________________________________________________________\
+activation_3 (Activation)    (None, 8, 27, 48)         0         \
+_________________________________________________________________\
+max_pooling2d_3 (MaxPooling2 (None, 7, 26, 48)         0         \
+_________________________________________________________________\
+conv2d_4 (Conv2D)            (None, 7, 26, 64)         27712     \
+_________________________________________________________________\
+activation_4 (Activation)    (None, 7, 26, 64)         0         \
+_________________________________________________________________\
+max_pooling2d_4 (MaxPooling2 (None, 6, 25, 64)         0         \
+_________________________________________________________________\
+conv2d_5 (Conv2D)            (None, 6, 25, 64)         36928     \
+_________________________________________________________________\
+activation_5 (Activation)    (None, 6, 25, 64)         0         \
+_________________________________________________________________\
+max_pooling2d_5 (MaxPooling2 (None, 5, 24, 64)         0         \
+_________________________________________________________________\
+flatten_1 (Flatten)          (None, 7680)              0         \
+_________________________________________________________________\
+dropout_1 (Dropout)          (None, 7680)              0         \
+_________________________________________________________________\
+dense_1 (Dense)              (None, 1164)              8940684   \
+_________________________________________________________________\
+dropout_2 (Dropout)          (None, 1164)              0         \
+_________________________________________________________________\
+activation_6 (Activation)    (None, 1164)              0         \
+_________________________________________________________________\
+dense_2 (Dense)              (None, 100)               116500    \
+_________________________________________________________________\
+dropout_3 (Dropout)          (None, 100)               0         \
+_________________________________________________________________\
+activation_7 (Activation)    (None, 100)               0         \
+_________________________________________________________________\
+dense_3 (Dense)              (None, 50)                5050      \
+_________________________________________________________________\
+dropout_4 (Dropout)          (None, 50)                0         \
+_________________________________________________________________\
+activation_8 (Activation)    (None, 50)                0         \
+_________________________________________________________________\
+dense_4 (Dense)              (None, 10)                510       \
+_________________________________________________________________\
+dropout_5 (Dropout)          (None, 10)                0         \
+_________________________________________________________________\
+activation_9 (Activation)    (None, 10)                0         \
+_________________________________________________________________\
+dense_5 (Dense)              (None, 1)                 11        \
+=================================================================\
+Total params: 9,194,103\
+Trainable params: 9,194,103\
+Non-trainable params: 0\
+_________________________________________________________________\
+Identified training samples:  (398, 160, 320, 3) (398,)\
+Train on 318 samples, validate on 80 samples\
+Epoch 1/7\
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.\
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.\
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.\
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.\
+318/318 [==============================] - 4s - loss: 886.0791 - val_loss: 0.7731\
+Epoch 2/7\
+318/318 [==============================] - 4s - loss: 2.0193 - val_loss: 0.1552\
+Epoch 3/7\
+318/318 [==============================] - 4s - loss: 0.3536 - val_loss: 0.1548\
+Epoch 4/7\
+318/318 [==============================] - 4s - loss: 0.2160 - val_loss: 0.1537\
+Epoch 5/7\
+318/318 [==============================] - 4s - loss: 0.2053 - val_loss: 0.1546\
+Epoch 6/7\
+318/318 [==============================] - 4s - loss: 0.1989 - val_loss: 0.1545\
+Epoch 7/7\
+318/318 [==============================] - 4s - loss: 0.1874 - val_loss: 0.1541\
+
+\f1\b \cf2 ubuntu@ip-172-31-46-176
+\f2\b0 \cf4 :
+\f1\b \cf5 ~/code
+\f2\b0 \cf4 $ \
+\
+\
+\
+
+\f1\b \cf2 ===>> Only dropouts. Removed the constraints on steering angle
+\f2\b0 \cf4 \
+
+\f1\b \cf2 ubuntu@ip-172-31-46-176
+\f2\b0 \cf4 :
+\f1\b \cf5 ~/code
+\f2\b0 \cf4 $ python model.py \
+Using TensorFlow backend.\
+_________________________________________________________________\
+Layer (type)                 Output Shape              Param #   \
+=================================================================\
+cropping2d_1 (Cropping2D)    (None, 70, 220, 3)        0         \
+_________________________________________________________________\
+conv2d_1 (Conv2D)            (None, 35, 110, 24)       1824      \
+_________________________________________________________________\
+activation_1 (Activation)    (None, 35, 110, 24)       0         \
+_________________________________________________________________\
+max_pooling2d_1 (MaxPooling2 (None, 34, 109, 24)       0         \
+_________________________________________________________________\
+conv2d_2 (Conv2D)            (None, 17, 55, 36)        21636     \
+_________________________________________________________________\
+activation_2 (Activation)    (None, 17, 55, 36)        0         \
+_________________________________________________________________\
+max_pooling2d_2 (MaxPooling2 (None, 16, 54, 36)        0         \
+_________________________________________________________________\
+conv2d_3 (Conv2D)            (None, 8, 27, 48)         43248     \
+_________________________________________________________________\
+activation_3 (Activation)    (None, 8, 27, 48)         0         \
+_________________________________________________________________\
+max_pooling2d_3 (MaxPooling2 (None, 7, 26, 48)         0         \
+_________________________________________________________________\
+conv2d_4 (Conv2D)            (None, 7, 26, 64)         27712     \
+_________________________________________________________________\
+activation_4 (Activation)    (None, 7, 26, 64)         0         \
+_________________________________________________________________\
+max_pooling2d_4 (MaxPooling2 (None, 6, 25, 64)         0         \
+_________________________________________________________________\
+conv2d_5 (Conv2D)            (None, 6, 25, 64)         36928     \
+_________________________________________________________________\
+activation_5 (Activation)    (None, 6, 25, 64)         0         \
+_________________________________________________________________\
+max_pooling2d_5 (MaxPooling2 (None, 5, 24, 64)         0         \
+_________________________________________________________________\
+flatten_1 (Flatten)          (None, 7680)              0         \
+_________________________________________________________________\
+dropout_1 (Dropout)          (None, 7680)              0         \
+_________________________________________________________________\
+dense_1 (Dense)              (None, 1164)              8940684   \
+_________________________________________________________________\
+dropout_2 (Dropout)          (None, 1164)              0         \
+_________________________________________________________________\
+activation_6 (Activation)    (None, 1164)              0         \
+_________________________________________________________________\
+dense_2 (Dense)              (None, 100)               116500    \
+_________________________________________________________________\
+dropout_3 (Dropout)          (None, 100)               0         \
+_________________________________________________________________\
+activation_7 (Activation)    (None, 100)               0         \
+_________________________________________________________________\
+dense_3 (Dense)              (None, 50)                5050      \
+_________________________________________________________________\
+dropout_4 (Dropout)          (None, 50)                0         \
+_________________________________________________________________\
+activation_8 (Activation)    (None, 50)                0         \
+_________________________________________________________________\
+dense_4 (Dense)              (None, 10)                510       \
+_________________________________________________________________\
+dropout_5 (Dropout)          (None, 10)                0         \
+_________________________________________________________________\
+activation_9 (Activation)    (None, 10)                0         \
+_________________________________________________________________\
+dense_5 (Dense)              (None, 1)                 11        \
+=================================================================\
+Total params: 9,194,103\
+Trainable params: 9,194,103\
+Non-trainable params: 0\
+_________________________________________________________________\
+Identified training samples:  (8036, 160, 320, 3) (8036,)\
+Train on 6428 samples, validate on 1608 samples\
+Epoch 1/7\
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.\
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.\
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.\
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.\
+6428/6428 [==============================] - 93s - loss: 4.3735 - val_loss: 0.0174\
+Epoch 2/7\
+6428/6428 [==============================] - 93s - loss: 0.0165 - val_loss: 0.0177\
+Epoch 3/7\
+6428/6428 [==============================] - 91s - loss: 0.0165 - val_loss: 0.0178\
+Epoch 4/7\
+6428/6428 [==============================] - 90s - loss: 0.0165 - val_loss: 0.0177\
+Epoch 5/7\
+6428/6428 [==============================] - 90s - loss: 0.0163 - val_loss: 0.0176\
+Epoch 6/7\
+6428/6428 [==============================] - 87s - loss: 0.0161 - val_loss: 0.0174\
+Epoch 7/7\
+6428/6428 [==============================] - 87s - loss: 0.0160 - val_loss: 0.0176\
+
+\f1\b \cf2 ubuntu@ip-172-31-46-176
+\f2\b0 \cf4 :
+\f1\b \cf5 ~/code
+\f2\b0 \cf4 $ \
+\
+\
+\
+
+\f1\b \cf2 ==>> Final model \'97 training data with only 2 Lapse
+\f2\b0 \cf4 \
+
+\f1\b \cf2 ubuntu@ip-172-31-46-176
+\f2\b0 \cf4 :
+\f1\b \cf5 ~/code
+\f2\b0 \cf4 $ python model.py \
+Using TensorFlow backend.\
+\
+_________________________________________________________________\
+Layer (type)                 Output Shape              Param #   \
+=================================================================\
+cropping2d_1 (Cropping2D)    (None, 70, 220, 3)        0         \
+_________________________________________________________________\
+conv2d_1 (Conv2D)            (None, 35, 110, 24)       1824      \
+_________________________________________________________________\
+activation_1 (Activation)    (None, 35, 110, 24)       0         \
+_________________________________________________________________\
+max_pooling2d_1 (MaxPooling2 (None, 34, 109, 24)       0         \
+_________________________________________________________________\
+conv2d_2 (Conv2D)            (None, 17, 55, 36)        21636     \
+_________________________________________________________________\
+activation_2 (Activation)    (None, 17, 55, 36)        0         \
+_________________________________________________________________\
+max_pooling2d_2 (MaxPooling2 (None, 16, 54, 36)        0         \
+_________________________________________________________________\
+conv2d_3 (Conv2D)            (None, 8, 27, 48)         43248     \
+_________________________________________________________________\
+activation_3 (Activation)    (None, 8, 27, 48)         0         \
+_________________________________________________________________\
+max_pooling2d_3 (MaxPooling2 (None, 7, 26, 48)         0         \
+_________________________________________________________________\
+conv2d_4 (Conv2D)            (None, 7, 26, 64)         27712     \
+_________________________________________________________________\
+activation_4 (Activation)    (None, 7, 26, 64)         0         \
+_________________________________________________________________\
+max_pooling2d_4 (MaxPooling2 (None, 6, 25, 64)         0         \
+_________________________________________________________________\
+conv2d_5 (Conv2D)            (None, 6, 25, 64)         36928     \
+_________________________________________________________________\
+activation_5 (Activation)    (None, 6, 25, 64)         0         \
+_________________________________________________________________\
+max_pooling2d_5 (MaxPooling2 (None, 5, 24, 64)         0         \
+_________________________________________________________________\
+flatten_1 (Flatten)          (None, 7680)              0         \
+_________________________________________________________________\
+dropout_1 (Dropout)          (None, 7680)              0         \
+_________________________________________________________________\
+dense_1 (Dense)              (None, 1164)              8940684   \
+_________________________________________________________________\
+activation_6 (Activation)    (None, 1164)              0         \
+_________________________________________________________________\
+dense_2 (Dense)              (None, 100)               116500    \
+_________________________________________________________________\
+dropout_2 (Dropout)          (None, 100)               0         \
+_________________________________________________________________\
+activation_7 (Activation)    (None, 100)               0         \
+_________________________________________________________________\
+dense_3 (Dense)              (None, 50)                5050      \
+_________________________________________________________________\
+dropout_3 (Dropout)          (None, 50)                0         \
+_________________________________________________________________\
+activation_8 (Activation)    (None, 50)                0         \
+_________________________________________________________________\
+dense_4 (Dense)              (None, 10)                510       \
+_________________________________________________________________\
+dropout_4 (Dropout)          (None, 10)                0         \
+_________________________________________________________________\
+activation_9 (Activation)    (None, 10)                0         \
+_________________________________________________________________\
+dense_5 (Dense)              (None, 1)                 11        \
+=================================================================\
+Total params: 9,194,103\
+Trainable params: 9,194,103\
+Non-trainable params: 0\
+_________________________________________________________________\
+Identified training samples:  (9426, 160, 320, 3) (9426,)\
+Train on 7540 samples, validate on 1886 samples\
+Epoch 1/7\
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.\
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.\
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.\
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.\
+7540/7540 [==============================] - 95s - loss: 33.4556 - val_loss: 0.0712\
+Epoch 2/7\
+7540/7540 [==============================] - 96s - loss: 0.0600 - val_loss: 0.0717\
+Epoch 3/7\
+7540/7540 [==============================] - 97s - loss: 0.0594 - val_loss: 0.0714\
+Epoch 4/7\
+7540/7540 [==============================] - 104s - loss: 0.0591 - val_loss: 0.0712\
+Epoch 5/7\
+7540/7540 [==============================] - 103s - loss: 0.0588 - val_loss: 0.0711\
+Epoch 6/7\
+7540/7540 [==============================] - 104s - loss: 0.0586 - val_loss: 0.0710\
+Epoch 7/7\
+7540/7540 [==============================] - 104s - loss: 0.0584 - val_loss: 0.0709\
+
+\f1\b \cf2 ubuntu@ip-172-31-46-176
+\f2\b0 \cf4 :
+\f1\b \cf5 ~/code
+\f2\b0 \cf4 $ \
+
+\f1\b \cf2 ubuntu@ip-172-31-46-176
+\f2\b0 \cf4 :
+\f1\b \cf5 ~/code
+\f2\b0 \cf4 $ \
+\
+\
+
+\f1\b \cf5 ==> Latest model with Steering Adjustments, Trained on data that includes rough terrain
+\f2\b0 \cf4 \
+
+\f1\b \cf2 ubuntu@ip-172-31-46-176
+\f2\b0 \cf4 :
+\f1\b \cf5 ~/code
+\f2\b0 \cf4 $ python model.py &\
+[1] 2909\
+
+\f1\b \cf2 ubuntu@ip-172-31-46-176
+\f2\b0 \cf4 :
+\f1\b \cf5 ~/code
+\f2\b0 \cf4 $ Using TensorFlow backend.\
+_________________________________________________________________\
+Layer (type)                 Output Shape              Param #   \
+=================================================================\
+cropping2d_1 (Cropping2D)    (None, 70, 220, 3)        0         \
+_________________________________________________________________\
+conv2d_1 (Conv2D)            (None, 35, 110, 24)       1824      \
+_________________________________________________________________\
+activation_1 (Activation)    (None, 35, 110, 24)       0         \
+_________________________________________________________________\
+max_pooling2d_1 (MaxPooling2 (None, 34, 109, 24)       0         \
+_________________________________________________________________\
+conv2d_2 (Conv2D)            (None, 17, 55, 36)        21636     \
+_________________________________________________________________\
+activation_2 (Activation)    (None, 17, 55, 36)        0         \
+_________________________________________________________________\
+max_pooling2d_2 (MaxPooling2 (None, 16, 54, 36)        0         \
+_________________________________________________________________\
+conv2d_3 (Conv2D)            (None, 8, 27, 48)         43248     \
+_________________________________________________________________\
+activation_3 (Activation)    (None, 8, 27, 48)         0         \
+_________________________________________________________________\
+max_pooling2d_3 (MaxPooling2 (None, 7, 26, 48)         0         \
+_________________________________________________________________\
+conv2d_4 (Conv2D)            (None, 7, 26, 64)         27712     \
+_________________________________________________________________\
+activation_4 (Activation)    (None, 7, 26, 64)         0         \
+_________________________________________________________________\
+max_pooling2d_4 (MaxPooling2 (None, 6, 25, 64)         0         \
+_________________________________________________________________\
+conv2d_5 (Conv2D)            (None, 6, 25, 64)         36928     \
+_________________________________________________________________\
+activation_5 (Activation)    (None, 6, 25, 64)         0         \
+_________________________________________________________________\
+max_pooling2d_5 (MaxPooling2 (None, 5, 24, 64)         0         \
+_________________________________________________________________\
+flatten_1 (Flatten)          (None, 7680)              0         \
+_________________________________________________________________\
+dropout_1 (Dropout)          (None, 7680)              0         \
+_________________________________________________________________\
+dense_1 (Dense)              (None, 1164)              8940684   \
+_________________________________________________________________\
+activation_6 (Activation)    (None, 1164)              0         \
+_________________________________________________________________\
+dense_2 (Dense)              (None, 100)               116500    \
+_________________________________________________________________\
+dropout_2 (Dropout)          (None, 100)               0         \
+_________________________________________________________________\
+activation_7 (Activation)    (None, 100)               0         \
+_________________________________________________________________\
+dense_3 (Dense)              (None, 50)                5050      \
+_________________________________________________________________\
+dropout_3 (Dropout)          (None, 50)                0         \
+_________________________________________________________________\
+activation_8 (Activation)    (None, 50)                0         \
+_________________________________________________________________\
+dense_4 (Dense)              (None, 10)                510       \
+_________________________________________________________________\
+dropout_4 (Dropout)          (None, 10)                0         \
+_________________________________________________________________\
+activation_9 (Activation)    (None, 10)                0         \
+_________________________________________________________________\
+dense_5 (Dense)              (None, 1)                 11        \
+=================================================================\
+Total params: 9,194,103\
+Trainable params: 9,194,103\
+Non-trainable params: 0\
+_________________________________________________________________\
+Identified training samples:  (24258, 160, 320, 3) (24258,)\
+Train on 19406 samples, validate on 4852 samples\
+Epoch 1/7\
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.\
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.\
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.\
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.\
+19406/19406 [==============================] - 245s - loss: 41.9932 - val_loss: 0.2725\
+Epoch 2/7\
+19406/19406 [==============================] - 259s - loss: 0.0911 - val_loss: 0.2727\
+Epoch 3/7\
+19406/19406 [==============================] - 261s - loss: 0.0904 - val_loss: 0.2714\
+Epoch 4/7\
+19406/19406 [==============================] - 261s - loss: 0.0864 - val_loss: 0.2658\
+Epoch 5/7\
+19406/19406 [==============================] - 261s - loss: 0.0848 - val_loss: 0.2650\
+Epoch 6/7\
+19406/19406 [==============================] - 260s - loss: 0.0802 - val_loss: 0.2429\
+Epoch 7/7\
+19406/19406 [==============================] - 261s - loss: 0.0781 - val_loss: 0.2433\
+
+\f1\b \cf2 ubuntu@ip-172-31-46-176
+\f2\b0 \cf4 :
+\f1\b \cf5 ~/code
+\f2\b0 \cf4 $ \
+[1]+  Done                    python model.py\
+\
+\
+\
+
+\f1\b \cf2 ==>> Modified cropping \
+    model.add(Cropping2D(cropping=((70, 20), (20, 20)), input_shape=(160, 320, 3)))\
+	Also using 50% dropout for all connected layers\
+ubuntu@ip-172-31-46-176
+\f2\b0 \cf4 :
+\f1\b \cf5 ~/code
+\f2\b0 \cf4 $ python model.py \
+Using TensorFlow backend.\
+_________________________________________________________________\
+Layer (type)                 Output Shape              Param #   \
+=================================================================\
+cropping2d_1 (Cropping2D)    (None, 70, 280, 3)        0         \
+_________________________________________________________________\
+conv2d_1 (Conv2D)            (None, 35, 140, 24)       1824      \
+_________________________________________________________________\
+activation_1 (Activation)    (None, 35, 140, 24)       0         \
+_________________________________________________________________\
+max_pooling2d_1 (MaxPooling2 (None, 34, 139, 24)       0         \
+_________________________________________________________________\
+conv2d_2 (Conv2D)            (None, 17, 70, 36)        21636     \
+_________________________________________________________________\
+activation_2 (Activation)    (None, 17, 70, 36)        0         \
+_________________________________________________________________\
+max_pooling2d_2 (MaxPooling2 (None, 16, 69, 36)        0         \
+_________________________________________________________________\
+conv2d_3 (Conv2D)            (None, 8, 35, 48)         43248     \
+_________________________________________________________________\
+activation_3 (Activation)    (None, 8, 35, 48)         0         \
+_________________________________________________________________\
+max_pooling2d_3 (MaxPooling2 (None, 7, 34, 48)         0         \
+_________________________________________________________________\
+conv2d_4 (Conv2D)            (None, 7, 34, 64)         27712     \
+_________________________________________________________________\
+activation_4 (Activation)    (None, 7, 34, 64)         0         \
+_________________________________________________________________\
+max_pooling2d_4 (MaxPooling2 (None, 6, 33, 64)         0         \
+_________________________________________________________________\
+conv2d_5 (Conv2D)            (None, 6, 33, 64)         36928     \
+_________________________________________________________________\
+activation_5 (Activation)    (None, 6, 33, 64)         0         \
+_________________________________________________________________\
+max_pooling2d_5 (MaxPooling2 (None, 5, 32, 64)         0         \
+_________________________________________________________________\
+flatten_1 (Flatten)          (None, 10240)             0         \
+_________________________________________________________________\
+dropout_1 (Dropout)          (None, 10240)             0         \
+_________________________________________________________________\
+dense_1 (Dense)              (None, 1164)              11920524  \
+_________________________________________________________________\
+activation_6 (Activation)    (None, 1164)              0         \
+_________________________________________________________________\
+dense_2 (Dense)              (None, 100)               116500    \
+_________________________________________________________________\
+dropout_2 (Dropout)          (None, 100)               0         \
+_________________________________________________________________\
+activation_7 (Activation)    (None, 100)               0         \
+_________________________________________________________________\
+dense_3 (Dense)              (None, 50)                5050      \
+_________________________________________________________________\
+dropout_3 (Dropout)          (None, 50)                0         \
+_________________________________________________________________\
+activation_8 (Activation)    (None, 50)                0         \
+_________________________________________________________________\
+dense_4 (Dense)              (None, 10)                510       \
+_________________________________________________________________\
+dropout_4 (Dropout)          (None, 10)                0         \
+_________________________________________________________________\
+activation_9 (Activation)    (None, 10)                0         \
+_________________________________________________________________\
+dense_5 (Dense)              (None, 1)                 11        \
+=================================================================\
+Total params: 12,173,943\
+Trainable params: 12,173,943\
+Non-trainable params: 0\
+_________________________________________________________________\
+Identified training samples:  (8709, 160, 320, 3) (8709,)\
+Train on 6967 samples, validate on 1742 samples\
+Epoch 1/7\
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.\
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.\
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.\
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.\
+6967/6967 [==============================] - 109s - loss: 44.5555 - val_loss: 0.4643\
+Epoch 2/7\
+6967/6967 [==============================] - 110s - loss: 0.2337 - val_loss: 0.4633\
+Epoch 3/7\
+6967/6967 [==============================] - 110s - loss: 0.2335 - val_loss: 0.4620\
+Epoch 4/7\
+6967/6967 [==============================] - 116s - loss: 0.2333 - val_loss: 0.4611\
+Epoch 5/7\
+6967/6967 [==============================] - 118s - loss: 0.2331 - val_loss: 0.4604\
+Epoch 6/7\
+6967/6967 [==============================] - 117s - loss: 0.2331 - val_loss: 0.4600\
+Epoch 7/7\
+6967/6967 [==============================] - 118s - loss: 0.2331 - val_loss: 0.4599\
+
+\f1\b \cf2 ubuntu@ip-172-31-46-176
+\f2\b0 \cf4 :
+\f1\b \cf5 ~/code
+\f2\b0 \cf4 $ \
+\
+\
+\
+
+\f1\b \cf2 ==> Image randomization using Mirror & Crop preprocessing\
+
+\f2\b0 \cf4 \
+
+\f1\b \cf2 ubuntu@ip-172-31-46-176
+\f2\b0 \cf4 :
+\f1\b \cf5 ~/code
+\f2\b0 \cf4 $ python model.py \
+Using TensorFlow backend.\
+________________________________________\
+Layer (type)                 Output Shape              Param #   \
+=================================================================\
+cropping2d_1 (Cropping2D)    (None, 70, 280, 3)        0         \
+_________________________________________________________________\
+conv2d_1 (Conv2D)            (None, 35, 140, 24)       1824      \
+_________________________________________________________________\
+activation_1 (Activation)    (None, 35, 140, 24)       0         \
+_________________________________________________________________\
+max_pooling2d_1 (MaxPooling2 (None, 34, 139, 24)       0         \
+_________________________________________________________________\
+conv2d_2 (Conv2D)            (None, 17, 70, 36)        21636     \
+_________________________________________________________________\
+activation_2 (Activation)    (None, 17, 70, 36)        0         \
+_________________________________________________________________\
+max_pooling2d_2 (MaxPooling2 (None, 16, 69, 36)        0         \
+_________________________________________________________________\
+conv2d_3 (Conv2D)            (None, 8, 35, 48)         43248     \
+_________________________________________________________________\
+activation_3 (Activation)    (None, 8, 35, 48)         0         \
+_________________________________________________________________\
+max_pooling2d_3 (MaxPooling2 (None, 7, 34, 48)         0         \
+_________________________________________________________________\
+conv2d_4 (Conv2D)            (None, 7, 34, 64)         27712     \
+_________________________________________________________________\
+activation_4 (Activation)    (None, 7, 34, 64)         0         \
+_________________________________________________________________\
+max_pooling2d_4 (MaxPooling2 (None, 6, 33, 64)         0         \
+_________________________________________________________________\
+conv2d_5 (Conv2D)            (None, 6, 33, 64)         36928     \
+_________________________________________________________________\
+activation_5 (Activation)    (None, 6, 33, 64)         0         \
+_________________________________________________________________\
+max_pooling2d_5 (MaxPooling2 (None, 5, 32, 64)         0         \
+_________________________________________________________________\
+flatten_1 (Flatten)          (None, 10240)             0         \
+_________________________________________________________________\
+dropout_1 (Dropout)          (None, 10240)             0         \
+_________________________________________________________________\
+dense_1 (Dense)              (None, 1164)              11920524  \
+_________________________________________________________________\
+activation_6 (Activation)    (None, 1164)              0         \
+_________________________________________________________________\
+dense_2 (Dense)              (None, 100)               116500    \
+_________________________________________________________________\
+dropout_2 (Dropout)          (None, 100)               0         \
+_________________________________________________________________\
+activation_7 (Activation)    (None, 100)               0         \
+_________________________________________________________________\
+dense_3 (Dense)              (None, 50)                5050      \
+_________________________________________________________________\
+dropout_3 (Dropout)          (None, 50)                0         \
+_________________________________________________________________\
+activation_8 (Activation)    (None, 50)                0         \
+_________________________________________________________________\
+dense_4 (Dense)              (None, 10)                510       \
+_________________________________________________________________\
+dropout_4 (Dropout)          (None, 10)                0         \
+_________________________________________________________________\
+activation_9 (Activation)    (None, 10)                0         \
+_________________________________________________________________\
+dense_5 (Dense)              (None, 1)                 11        \
+=================================================================\
+Total params: 12,173,943\
+Trainable params: 12,173,943\
+Non-trainable params: 0\
+_________________________________________________________________\
+Identified training samples:  (8086, 160, 320, 3) (8086,)\
+Train on 6468 samples, validate on 1618 samples\
+Epoch 1/7\
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.\
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.\
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.\
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.\
+6468/6468 [==============================] - 101s - loss: 36.7886 - val_loss: 0.2328\
+Epoch 2/7\
+6468/6468 [==============================] - 101s - loss: 0.0494 - val_loss: 0.2324\
+Epoch 3/7\
+6468/6468 [==============================] - 101s - loss: 0.0493 - val_loss: 0.2323\
+Epoch 4/7\
+6468/6468 [==============================] - 105s - loss: 0.0492 - val_loss: 0.2321\
+Epoch 5/7\
+6468/6468 [==============================] - 109s - loss: 0.0492 - val_loss: 0.2319\
+Epoch 6/7\
+6468/6468 [==============================] - 108s - loss: 0.0491 - val_loss: 0.2317\
+Epoch 7/7\
+6468/6468 [==============================] - 108s - loss: 0.0491 - val_loss: 0.2316\
+
+\f1\b \cf2 ubuntu@ip-172-31-46-176
+\f2\b0 \cf4 :
+\f1\b \cf5 ~/code
+\f2\b0 \cf4 $ \
+\
+
+\f1\b \cf2 ====> Randomized model \'97 using reverse driving data
+\f2\b0 \cf4 \
+
+\f1\b \cf2 ubuntu@ip-172-31-46-176
+\f2\b0 \cf4 :
+\f1\b \cf5 ~/code
+\f2\b0 \cf4 $ python model.py \
+Using TensorFlow backend.\
+_________________________________________________________________\
+Layer (type)                 Output Shape              Param #   \
+=================================================================\
+cropping2d_1 (Cropping2D)    (None, 70, 280, 3)        0         \
+_________________________________________________________________\
+conv2d_1 (Conv2D)            (None, 35, 140, 24)       1824      \
+_________________________________________________________________\
+activation_1 (Activation)    (None, 35, 140, 24)       0         \
+_________________________________________________________________\
+max_pooling2d_1 (MaxPooling2 (None, 34, 139, 24)       0         \
+_________________________________________________________________\
+conv2d_2 (Conv2D)            (None, 17, 70, 36)        21636     \
+_________________________________________________________________\
+activation_2 (Activation)    (None, 17, 70, 36)        0         \
+_________________________________________________________________\
+max_pooling2d_2 (MaxPooling2 (None, 16, 69, 36)        0         \
+_________________________________________________________________\
+conv2d_3 (Conv2D)            (None, 8, 35, 48)         43248     \
+_________________________________________________________________\
+activation_3 (Activation)    (None, 8, 35, 48)         0         \
+_________________________________________________________________\
+max_pooling2d_3 (MaxPooling2 (None, 7, 34, 48)         0         \
+_________________________________________________________________\
+conv2d_4 (Conv2D)            (None, 7, 34, 64)         27712     \
+_________________________________________________________________\
+activation_4 (Activation)    (None, 7, 34, 64)         0         \
+_________________________________________________________________\
+max_pooling2d_4 (MaxPooling2 (None, 6, 33, 64)         0         \
+_________________________________________________________________\
+conv2d_5 (Conv2D)            (None, 6, 33, 64)         36928     \
+_________________________________________________________________\
+activation_5 (Activation)    (None, 6, 33, 64)         0         \
+_________________________________________________________________\
+max_pooling2d_5 (MaxPooling2 (None, 5, 32, 64)         0         \
+_________________________________________________________________\
+flatten_1 (Flatten)          (None, 10240)             0         \
+_________________________________________________________________\
+dropout_1 (Dropout)          (None, 10240)             0         \
+_________________________________________________________________\
+dense_1 (Dense)              (None, 1164)              11920524  \
+_________________________________________________________________\
+activation_6 (Activation)    (None, 1164)              0         \
+_________________________________________________________________\
+dense_2 (Dense)              (None, 100)               116500    \
+_________________________________________________________________\
+dropout_2 (Dropout)          (None, 100)               0         \
+_________________________________________________________________\
+activation_7 (Activation)    (None, 100)               0         \
+_________________________________________________________________\
+dense_3 (Dense)              (None, 50)                5050      \
+_________________________________________________________________\
+dropout_3 (Dropout)          (None, 50)                0         \
+_________________________________________________________________\
+activation_8 (Activation)    (None, 50)                0         \
+_________________________________________________________________\
+dense_4 (Dense)              (None, 10)                510       \
+_________________________________________________________________\
+dropout_4 (Dropout)          (None, 10)                0         \
+_________________________________________________________________\
+activation_9 (Activation)    (None, 10)                0         \
+_________________________________________________________________\
+dense_5 (Dense)              (None, 1)                 11        \
+=================================================================\
+Total params: 12,173,943\
+Trainable params: 12,173,943\
+Non-trainable params: 0\
+_________________________________________________________________\
+Identified training samples:  (5177, 160, 320, 3) (5177,)\
+Train on 4141 samples, validate on 1036 samples\
+Epoch 1/7\
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.\
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.\
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.\
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.\
+4141/4141 [==============================] - 65s - loss: 38.2753 - val_loss: 0.0227\
+Epoch 2/7\
+4141/4141 [==============================] - 64s - loss: 0.0212 - val_loss: 0.0230\
+Epoch 3/7\
+4141/4141 [==============================] - 65s - loss: 0.0209 - val_loss: 0.0235\
+Epoch 4/7\
+4141/4141 [==============================] - 65s - loss: 0.0207 - val_loss: 0.0240\
+Epoch 5/7\
+4141/4141 [==============================] - 65s - loss: 0.0205 - val_loss: 0.0244\
+Epoch 6/7\
+4141/4141 [==============================] - 67s - loss: 0.0208 - val_loss: 0.0246\
+Epoch 7/7\
+4141/4141 [==============================] - 71s - loss: 0.0204 - val_loss: 0.0248\
+
+\f1\b \cf2 ubuntu@ip-172-31-46-176
+\f2\b0 \cf4 :
+\f1\b \cf5 ~/code
+\f2\b0 \cf4 $ \
+\
+\
+\
+====\
+_________________________________________________________________\
+Layer (type)                 Output Shape              Param #   \
+=================================================================\
+cropping2d_1 (Cropping2D)    (None, 70, 220, 3)        0         \
+_________________________________________________________________\
+conv2d_1 (Conv2D)            (None, 35, 110, 24)       1824      \
+_________________________________________________________________\
+activation_1 (Activation)    (None, 35, 110, 24)       0         \
+_________________________________________________________________\
+max_pooling2d_1 (MaxPooling2 (None, 34, 109, 24)       0         \
+_________________________________________________________________\
+conv2d_2 (Conv2D)            (None, 17, 55, 36)        21636     \
+_________________________________________________________________\
+activation_2 (Activation)    (None, 17, 55, 36)        0         \
+_________________________________________________________________\
+max_pooling2d_2 (MaxPooling2 (None, 16, 54, 36)        0         \
+_________________________________________________________________\
+conv2d_3 (Conv2D)            (None, 8, 27, 48)         43248     \
+_________________________________________________________________\
+activation_3 (Activation)    (None, 8, 27, 48)         0         \
+_________________________________________________________________\
+max_pooling2d_3 (MaxPooling2 (None, 7, 26, 48)         0         \
+_________________________________________________________________\
+conv2d_4 (Conv2D)            (None, 7, 26, 64)         27712     \
+_________________________________________________________________\
+activation_4 (Activation)    (None, 7, 26, 64)         0         \
+_________________________________________________________________\
+max_pooling2d_4 (MaxPooling2 (None, 6, 25, 64)         0         \
+_________________________________________________________________\
+conv2d_5 (Conv2D)            (None, 6, 25, 64)         36928     \
+_________________________________________________________________\
+activation_5 (Activation)    (None, 6, 25, 64)         0         \
+_________________________________________________________________\
+max_pooling2d_5 (MaxPooling2 (None, 5, 24, 64)         0         \
+_________________________________________________________________\
+flatten_1 (Flatten)          (None, 7680)              0         \
+_________________________________________________________________\
+dropout_1 (Dropout)          (None, 7680)              0         \
+_________________________________________________________________\
+dense_1 (Dense)              (None, 1164)              8940684   \
+_________________________________________________________________\
+activation_6 (Activation)    (None, 1164)              0         \
+_________________________________________________________________\
+dense_2 (Dense)              (None, 100)               116500    \
+_________________________________________________________________\
+dropout_2 (Dropout)          (None, 100)               0         \
+_________________________________________________________________\
+activation_7 (Activation)    (None, 100)               0         \
+_________________________________________________________________\
+dense_3 (Dense)              (None, 50)                5050      \
+_________________________________________________________________\
+dropout_3 (Dropout)          (None, 50)                0         \
+_________________________________________________________________\
+activation_8 (Activation)    (None, 50)                0         \
+_________________________________________________________________\
+dense_4 (Dense)              (None, 10)                510       \
+_________________________________________________________________\
+dropout_4 (Dropout)          (None, 10)                0         \
+_________________________________________________________________\
+activation_9 (Activation)    (None, 10)                0         \
+_________________________________________________________________\
+dense_5 (Dense)              (None, 1)                 11        \
+=================================================================\
+Total params: 9,194,103\
+Trainable params: 9,194,103\
+Non-trainable params: 0\
+_________________________________________________________________\
+Identified training samples:  (16072, 160, 320, 3) (16072,)\
+Train on 12857 samples, validate on 3215 samples\
+Epoch 1/7\
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.\
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.\
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.\
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.\
+12857/12857 [==============================] - 161s - loss: 3.2427 - val_loss: 0.0169\
+Epoch 2/7\
+12857/12857 [==============================] - 165s - loss: 0.0165 - val_loss: 0.0170\
+Epoch 3/7\
+12857/12857 [==============================] - 174s - loss: 0.0165 - val_loss: 0.0170\
+Epoch 4/7\
+12857/12857 [==============================] - 173s - loss: 0.0165 - val_loss: 0.0170\
+Epoch 5/7\
+12857/12857 [==============================] - 173s - loss: 0.0165 - val_loss: 0.0170\
+Epoch 6/7\
+12857/12857 [==============================] - 173s - loss: 0.0165 - val_loss: 0.0170\
+Epoch 7/7\
+12857/12857 [==============================] - 173s - loss: 0.0165 - val_loss: 0.0171\
+
+\f1\b \cf2 ubuntu@ip-172-31-46-176
+\f2\b0 \cf4 :
+\f1\b \cf5 ~/code
+\f2\b0 \cf4 $ \
+}
