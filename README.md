@@ -206,6 +206,8 @@ I have tried to document some of my failed attempts in the RTF file, showing onl
 
 Below is the recording from the working setup.
 
+```
+YouTube - video.mp4 - Click to play
+```
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/QxI3tvIn0Ms" frameborder="0" allowfullscreen>video.mp4</iframe>
-
+[![video.mp4](http://img.youtube.com/vi/QxI3tvIn0Ms/maxresdefault.jpg)](http://www.youtube.com/watch?v=QxI3tvIn0Ms)
