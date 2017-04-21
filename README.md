@@ -10,7 +10,7 @@ The goals for this project are the following:
 * Test to make sure model successfully drives around track one without leaving the road
 * Summarize the results with a written report
 
---
+---
 
 ### Prerequisites
 
@@ -20,7 +20,7 @@ The goals for this project are the following:
 * [NVIDIA's model](http://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf) for a working CNN model
 * Udacity's Self Driving Car simulator
 
---
+---
 
 ### Project Files & Folder Structure
 
@@ -35,7 +35,7 @@ This project incldes the following files & folders
 > >
 > > model.h7
 > >
-> > [Resultant Video - Car going in circles :-) ](https://youtu.be/XlR6suUvaVE)
+> > video.mp4 => [Resultant Video - Car going in circles :-) ](https://youtu.be/XlR6suUvaVE) -- available in youtube
 >
 > **first-attempt**
 > > model.py  => trial 1 for a model based on NVIDIA & Keras 2
@@ -45,7 +45,7 @@ This project incldes the following files & folders
 > > data-distribution.png => histogram showing data distribution
 > >
 > >
-> > [Video - Properly driving on track 1](https://youtu.be/UUspdDIenkw) -- uploaded to youtube
+> > video.mp4 => [Video - Properly driving on track 1](https://youtu.be/UUspdDIenkw) -- uploaded to youtube
 > 	
 > **final-attempt**
 > >
@@ -53,12 +53,15 @@ This project incldes the following files & folders
 > >
 > > model.py => Final Model
 > >
+> > [video.mp4](https://youtu.be/QxI3tvIn0Ms) => available in YouTube
 >
 > model.h5.zip => Compiled model, same as in final-attempt folder
 >
 > model.py => Same as in final-attempt folder
 >
 > model.png => Keras model visualization
+> 
+> video.mp4 => YouTube Link [https://youtu.be/QxI3tvIn0Ms](https://youtu.be/QxI3tvIn0Ms)
 
 --
 
@@ -179,7 +182,7 @@ _________________________________________________________________
 Here is a visualization of the architecture  [Keras Model Visualization](./model.png)
 
 
-####3. Creation of the Training Set & Training Process
+#### 3. Creation of the Training Set & Training Process
 
 In the _**primitive attempt**_, I purposefully collected data by driving car in zig-zag manner hoping there will be more data points with non-zero steering angle and the model would strive to stick to the center always. However, I was proved otherwise as the car started to circle around continuously, as you see in the video here.
 
@@ -203,6 +206,6 @@ I have tried to document some of my failed attempts in the RTF file, showing onl
 
 Below is the recording from the working setup.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/QxI3tvIn0Ms" frameborder="0" allowfullscreen></iframe>
 
----
+<iframe width="560" height="315" src="https://www.youtube.com/embed/QxI3tvIn0Ms" frameborder="0" allowfullscreen>video.mp4</iframe>
+
